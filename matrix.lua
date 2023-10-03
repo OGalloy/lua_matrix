@@ -48,18 +48,4 @@ function Matrix:add(matrix)
 	end
 end
 
---test block
-time1 = os.clock()
-math.randomseed(os.clock())
-mat1 = Matrix:create(1000, 1000, 1)
-mat2 = Matrix:create(1000, 1000, 3)
-print("mat1 size:", mat1:getSize())
-print("mat2 size:", mat2:getSize())
---mat1:display()
-print()
---mat2:display()
-mat3 = mat1:add(mat2)
-print()
---mat3:display()
-time2 = os.clock()
-print(time2 - time1)
+return Matrix
