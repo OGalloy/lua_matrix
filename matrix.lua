@@ -48,4 +48,23 @@ function Matrix:add(matrix)
 	end
 end
 
+--Very Slow Method
+function Matrix:mul(matrix)
+	local first_matrix_rows, first_matrix_columns = self:getSize()
+	local second_matrix_rows, second_matrix_columns = matrix:getSize()
+
+	if first_matrix_columns ~= second_matrix_rows then
+		error("size columns first matrix not equal size rows second matrix")
+	end
+	local result = Matrix:create(first_matrix_rows, second_matrix_columns, 0)
+	for column = 1, second_matrix_columns do
+		for row = 1, first_matrix_rows do
+			for i = 1, first_matrix_columns do
+			result[row][column] = result[row][column] + self[row][i] * matrix[i][column]
+		end
+		end
+	end
+	return result		  
+end
+
 return Matrix
